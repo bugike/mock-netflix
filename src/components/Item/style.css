@@ -1,0 +1,25 @@
+.item-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5px 20px 5px 5px;
+}
+
+.img-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-container h5 {
+  margin: 3px;
+}
+
+button {
+  width: 80px;
+  opacity: 0;
+}
+
+.img-wrap:hover button {
+  opacity: 1;
+}

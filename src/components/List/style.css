@@ -1,0 +1,7 @@
+.list-container {
+  padding-left: 20px;
+}
+
+.items-container {
+  display: flex;
+}
