@@ -6,9 +6,13 @@ import {
     FETCH_DATA_FAILURE
 } from '../actions';
 
-const initialState = { 
-    mylist: [],
-    recommendations: []
+const initialState = {
+    loading: false,
+    error: null,
+    data: {
+        mylist: [],
+        recommendations: []
+    }
 };
 
 const reducer = (state = initialState, action) => {
@@ -16,32 +20,43 @@ const reducer = (state = initialState, action) => {
         case FETCH_DATA_BEGIN:
             return {
                 ...state,
+                loading: true,
+                error: null
             };
         case FETCH_DATA_SUCCESS:
             return {
                 ...state,
-                mylist: action.data.mylist,
-                recommendations: action.data.recommendations
+                loading: false,
+                data: {
+                    mylist: action.data.mylist,
+                    recommendations: action.data.recommendations
+                }
             };
         case FETCH_DATA_FAILURE:
             return {
                 ...state,
+                loading: false,
+                error: action.payload.error
             };
         case ADD_ITEM:
-            let newRecList1 = state.recommendations.filter(item => item.id !== action.data.id);
-            let newMyList1 = [...state.mylist, action.data];
+            let newRecList1 = state.data.recommendations.filter(item => item.id !== action.data.id);
+            let newMyList1 = [...state.data.mylist, action.data];
             return {
                 ...state, 
-                mylist: newMyList1, 
-                recommendations: newRecList1
+                data: {
+                    mylist: newMyList1, 
+                    recommendations: newRecList1
+                }
             };
         case REMOVE_ITEM:
-            let newMyList2 = state.mylist.filter(item => item.id !== action.data.id);
-            let newRecList2 = [...state.recommendations, action.data];
+            let newMyList2 = state.data.mylist.filter(item => item.id !== action.data.id);
+            let newRecList2 = [...state.data.recommendations, action.data];
             return {
                 ...state, 
-                mylist: newMyList2, 
-                recommendations: newRecList2
+                data: {
+                    mylist: newMyList2, 
+                    recommendations: newRecList2
+                }
             };
         default:
             return state;

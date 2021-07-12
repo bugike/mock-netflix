@@ -27,8 +27,8 @@ class List extends Component {
 
 const mapStateToProps = state => {
     return {
-        mylist: state.mylist,
-        recommendations: state.recommendations
+        mylist: state.data.mylist,
+        recommendations: state.data.recommendations
     };
 };
 

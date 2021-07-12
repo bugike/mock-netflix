@@ -31,7 +31,8 @@ export const fetchDataSuccess = response => ({
 });
 
 export const fetchDataFailure = error => ({
-    type: FETCH_DATA_FAILURE
+    type: FETCH_DATA_FAILURE,
+    payload: { error }
 });
 
 export const fetchData = () => {

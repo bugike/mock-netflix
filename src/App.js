@@ -9,6 +9,7 @@ class App extends Component{
     this.props.dispatch(fetchData());
   }
   render() {
+    
     return (
       <div className='App'>
         <Navbar />
@@ -19,11 +20,4 @@ class App extends Component{
   }
 } 
 
-const mapStateToProps = state => {
-  return {
-    mylist: state.mylist,
-    recommendations: state.recommendations
-  };
-}
-
-export default connect(mapStateToProps)(App);
+export default connect()(App);
