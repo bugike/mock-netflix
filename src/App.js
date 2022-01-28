@@ -12,7 +12,6 @@ class App extends Component {
 
     return (
       <div className='App'>
-        <h1>branch -- change 11</h1>
         <Navbar />
         <List type='mylist' />
         <List type='recommekndations' />
